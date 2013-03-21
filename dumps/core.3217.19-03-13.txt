@@ -1,0 +1,21 @@
+#0  0x00007fd5b29639d0 in ?? ()
+#1  0x00000000004638e7 in Game::addCreatureHealth(std::list<Creature*, std::allocator<Creature*> > const&, Creature const*) ()
+#2  0x0000000000467a23 in Game::combatChangeHealth(CombatType_t, Creature*, Creature*, int, MagicEffect_t, Color_t, bool) ()
+#3  0x0000000000427e0a in Combat::CombatHealthFunc(Creature*, Creature*, CombatParams const&, void*) ()
+#4  0x000000000042a127 in Combat::doCombatHealth(Creature*, Creature*, int, int, CombatParams const&) ()
+#5  0x000000000055f9dd in Weapon::internalUseWeapon(Player*, Item*, Creature*, int) const ()
+#6  0x000000000055fa99 in WeaponMelee::useWeapon(Player*, Item*, Creature*) const ()
+#7  0x0000000000511695 in Player::doAttacking(unsigned int) ()
+#8  0x000000000044a612 in Creature::onAttacking(unsigned int) ()
+#9  0x000000000044b90b in Creature::onThink(unsigned int) ()
+#10 0x000000000050a5c2 in Player::onThink(unsigned int) ()
+#11 0x000000000046e714 in Game::checkCreatures() ()
+#12 0x0000000000460040 in Task::operator()() ()
+#13 0x000000000045f6cc in Dispatcher::dispatcherThread(void*) ()
+#14 0x00007fd5c51c1d97 in thread_proxy ()
+   from /usr/lib64/libboost_thread-mt.so.5
+#15 0x00007fd5c58c97f1 in start_thread () from /lib64/libpthread.so.0
+Quit
+Hangup detected on fd 0
+Error detected on fd 0
+error detected on stdin
