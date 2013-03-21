@@ -25,7 +25,8 @@
 
     // Services for the dashboard
     $services = array();
-    $services[] = array(
+    // Sample Services
+    /*$services[] = array(
         'short_name' => 'ot', 
         'proper_name' => 'Open Tibia', 
         'host' => '127.0.0.1', 
@@ -42,5 +43,5 @@
         'proper_name' => 'Failed Service',
         'host' => '127.0.0.1',
         'port' => '1'
-    );
+    );*/
 ?>
