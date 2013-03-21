@@ -37,13 +37,5 @@
         <input type="text" class="input-block-level" placeholder="Account Number" name="account_number">
         <input type="password" class="input-block-level" placeholder="Password" name="password">
         <button class="btn btn-large btn-primary" type="submit">Sign in</button>
-        <p><pre>Demo Accounts:
-    Admin - 
-        Username: demo_admin
-        Password: demodemo
-    Readonly -
-        Username: demo
-        Password: demodemo
-        </pre></p>
       </form>
 
