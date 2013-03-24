@@ -1,22 +1,3 @@
-<?php
-    /*
-    Copyright (C) 2013 - God Xanitex
-
-    This program is free software: you can redistribute it and/or modify
-    it under the terms of the GNU General Public License as published by
-    the Free Software Foundation, either version 3 of the License, or
-    (at your option) any later version.
-
-    This program is distributed in the hope that it will be useful,
-    but WITHOUT ANY WARRANTY; without even the implied warranty of
-    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-    GNU General Public License for more details.
-
-    You should have received a copy of the GNU General Public License
-    along with this program.  If not, see <http://www.gnu.org/licenses/>.
-    */
-?>
-
 <?php include "header.php"; ?>
 
 <?php 
@@ -68,13 +49,19 @@
         }
         if (is_numeric($premium_points))
         {
-            $clauses[] = '`premium_points` = "'.$premium_points.'"';
+            if ($premium_points >= 0)
+                $clauses[] = '`premium_points` = "'.$premium_points.'"';
+            else
+                $errors[] = "Negative values are not acceptable for premium points.";
         }
         else if ($premium_points != '')
             $errors[] = "Premium points must be a numeric value.";
         if (is_numeric($page_access))
         {
-            $clauses[] = '`page_access` = "'.$page_access.'"';
+            if ($page_access >= 0)
+                $clauses[] = '`page_access` = "'.$page_access.'"';
+            else
+                $errors[] = "Negative values are not acceptable for page access.";
         }
         else if ($page_access != '')
             $errors[] = "Page access must be a numeric value.";

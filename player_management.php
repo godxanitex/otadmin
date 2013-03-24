@@ -1,21 +1,3 @@
-<?php
-    /*
-    Copyright (C) 2013 - God Xanitex
-
-    This program is free software: you can redistribute it and/or modify
-    it under the terms of the GNU General Public License as published by
-    the Free Software Foundation, either version 3 of the License, or
-    (at your option) any later version.
-
-    This program is distributed in the hope that it will be useful,
-    but WITHOUT ANY WARRANTY; without even the implied warranty of
-    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-    GNU General Public License for more details.
-
-    You should have received a copy of the GNU General Public License
-    along with this program.  If not, see <http://www.gnu.org/licenses/>.
-    */
-?>
 <?php include "header.php"; ?>
 
 <?php 
@@ -52,6 +34,10 @@
                 if ($skills_output == '')
                     $skills_output = '<div class="alert alert-warning"><button type="button" class="close" data-dismiss="alert">&times;</button>Queries to update skills were executed, but there is no validation to ensure they were successful. Please review below.</div>';
             }
+            elseif ($_POST[$v]!= '')
+            {
+                $general_errors[] = "Skill value must be between 10 and 120.";
+            }
         }
         if (isset($_POST['name']) and $_POST['name'] != '')
         {
@@ -65,7 +51,10 @@
             if (is_numeric($_POST['level']))
             {
                 $level = $_POST['level'];
-                $general_clauses[] = '`level` = "'.$level.'"';
+                if ($level > 0)
+                    $general_clauses[] = '`level` = "'.$level.'"';
+                else
+                    $general_errors[] = "A player's level must be greater than 0.";
                 $exp = ((50 * (($level - 1) * ($level - 1) * ($level - 1 ))) - (150 * (($level-1)*($level-1))) + (400 * ( $level - 1))) / 3; 
                 $general_clauses[] = '`experience` = "'.$exp.'"';
             }
@@ -94,7 +83,10 @@
             $maglevel = $_POST['maglevel'];
             if (is_numeric($maglevel))
             {
-                $general_clauses[] = '`maglevel` = "'.$maglevel.'"';
+                if ($maglevel >= 0)
+                    $general_clauses[] = '`maglevel` = "'.$maglevel.'"';
+                else
+                    $general_errors[] = "A player's magic level must be greater than or equal to 0.";
             }
             else
                 $general_errors[] = "Magic level is a non-numeric value.";
