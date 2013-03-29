@@ -1,27 +1,9 @@
 <?php
-    /*
-    Copyright (C) 2013 - God Xanitex
-
-    This program is free software: you can redistribute it and/or modify
-    it under the terms of the GNU General Public License as published by
-    the Free Software Foundation, either version 3 of the License, or
-    (at your option) any later version.
-
-    This program is distributed in the hope that it will be useful,
-    but WITHOUT ANY WARRANTY; without even the implied warranty of
-    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-    GNU General Public License for more details.
-
-    You should have received a copy of the GNU General Public License
-    along with this program.  If not, see <http://www.gnu.org/licenses/>.
-    */
-?>
-<?php
-	// MySQL Configuration Information
+    // MySQL Configuration Information
     $host = "localhost";
     $un = "demo";
-	$pw = "demo_password";
-	$db = "tfstest";
+    $pw = "demo_password";
+    $db = "tfstest";
 
     // Arrays that contain vocation information based on promotion
     $vocation_name[0] = array(0 => 'None', 1 => 'Sorcerer', 2 => 'Druid', 3 => 'Paladin', 4 => 'Knight', 5 => 'Barbarian', 6 => 'Assassin'); 
@@ -43,8 +25,7 @@
 
     // Services for the dashboard
     $services = array();
-    // Sample Services
-    /*$services[] = array(
+    $services[] = array(
         'short_name' => 'ot', 
         'proper_name' => 'Open Tibia', 
         'host' => '127.0.0.1', 
@@ -61,5 +42,14 @@
         'proper_name' => 'Failed Service',
         'host' => '127.0.0.1',
         'port' => '1'
-    );*/
+    );
+    // Menu items
+    $menu_auth = array(
+        "Dashboard" => "dashboard.php",
+        "Account Management" => "account_management.php",
+        "Player Management" => "player_management.php",
+        "Admin Logs" => "admin_logs.php",
+        "Crash Logs" => "crash_dump.php",
+        "Log Out" => "logout.php"
+    );
 ?>
