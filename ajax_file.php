@@ -7,8 +7,9 @@
         die();
     }
     $name = $_GET['name'];
+    $name = trim($name);
     $log_path = $ot_root . '/data/logs';
-    if (strstr($name,$log_path) and !strstr($name,'..') or strstr($name,'dumps') and !strstr($name,'..'))
+    if (strstr(substr($name,0,strlen($log_path)),$log_path) and !strstr($name,'..') or strstr(substr($name,0,strlen('dumps')),'dumps') and !strstr($name,'..'))
     {
         echo htmlentities(file_get_contents($name));
     }
